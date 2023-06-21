@@ -1,9 +1,6 @@
 // Place all the styles related to the tops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-main {
- 
-}
 
 .First-view {
  background-image: url("cover-lg.jpg");
@@ -29,4 +26,8 @@ main {
 h2 {
  font-size: 40px;
  margin-left: 20px;
+ margin-bottom: 140px;
+ text-decoration: underline;
+ text-underline-offset: 40px;
+ text-decoration-color: orange;
 }

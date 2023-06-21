@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'rails-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -57,3 +58,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # デバイス導入
 gem 'devise'
+gem 'pry-rails'
+
+# デバイス導入日本語化
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+
+# 画像アップロードデバイス
+gem 'carrierwave'
+gem 'mini_magick'

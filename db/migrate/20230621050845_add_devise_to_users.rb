@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class DeviseCreateUsers < ActiveRecord::Migration[6.1]
-  def change
+class AddDeviseToUsers < ActiveRecord::Migration[6.1]
+  def self.up
     create_table :users do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
@@ -32,8 +32,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-      t.string :name
 
+      # Uncomment below if timestamps were not included in your original model.
+
+      t.string :name
+      
       t.timestamps null: false
     end
 
@@ -41,5 +44,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
+  end
+
+  def self.down
+    # By default, we don't want to make any assumption about how to roll back a migration when your
+    # model already existed. Please edit below which fields you would like to remove in this migration.
+    raise ActiveRecord::IrreversibleMigration
   end
 end

@@ -58,3 +58,9 @@
  a:visited {
   color: #fff;
  }
+
+ .dp-menu {
+  display: flex;
+  text-align: start;
+  flex-direction: column;
+ }
