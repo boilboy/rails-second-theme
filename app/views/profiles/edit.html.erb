@@ -1,0 +1,41 @@
+<main class ="account-summary">
+ <%= render 'users/shared/sideleft' %>
+
+  <div class="container">  
+    <div class="profile-list">
+      <h3>プロフィール</h3>
+      <%= form_with model: @user, url: profile_path, local: true do |f| %>
+        <%= render "users/shared/error_messages", resource: @user %>
+        
+        <% if @user.image? %>
+         <%= image_tag @user.image.url %>
+        <% else %>
+         <%= image_tag "/assets/button.png", :size => '50x50' %>
+        <% end %>
+    
+        <div class="form-group">
+          <%= f.label :アイコン画像 %>
+          <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', onchange: 'previewImage(preview)' %>
+          <%= f.hidden_field :avatar_cache %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :自己紹介 %>
+          <%= f.text_area :introduction %>
+        </div>
+
+        <%= f.submit "更新して保存" %>
+
+        <button> 
+          <%= link_to "キャンセル", :back %>
+        </button>
+
+      <% end %>
+    </div>
+  </div>
+</main>

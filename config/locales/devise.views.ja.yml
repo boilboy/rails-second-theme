@@ -8,8 +8,9 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
+        introduction: "自己紹介"
     models:
-      user: "ユーザ"
+      user: "データ"
   devise:
     confirmations:
       new:

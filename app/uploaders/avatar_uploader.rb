@@ -1,15 +1,16 @@
-class ImageUploader < CarrierWave::Uploader::Base
+class AvatarUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
-  process resize_to_fit: [40, 20]
+  # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
+  # 画像をアップロード
   storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
+  # アップロードした画像の表示
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
@@ -23,8 +24,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   def default_url
-    "button.png" 
-  end
+    "button.png"
+   end
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
@@ -49,5 +50,4 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
 end
