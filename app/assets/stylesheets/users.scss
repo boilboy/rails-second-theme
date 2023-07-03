@@ -21,7 +21,7 @@ header {
   
 header a {
  text-decoration: none;
- color: #fff;//
+ color: #fff;
 }
   
 .header-link-top {
@@ -64,6 +64,7 @@ header a {
 
 li {
  list-style: none;
+ white-space: nowrap; // 文字を勝手に改行させないため
  line-height: 0.9;
 }
 

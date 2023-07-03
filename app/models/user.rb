@@ -1,12 +1,13 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_many :rooms
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable
   
   mount_uploader :avatar, AvatarUploader
-  mount_uploader :image, ImageUploader
-
+  
   # アカウントページ(※メールアドレスとパスワード表示のページ)のバリデーション
   validates :name, presence: true
   validates :email, uniqueness: true, presence: true
@@ -15,8 +16,8 @@ class User < ApplicationRecord
   # プロフィールページ(※アイコン画像と名前と自己紹介表示のページ)のバリデーション
   validates :introduction, length: { maximum: 500 }
     
-  def index
-   @user = User.find(session[:user_id])
-  end
+  #def index
+   #@user = User.find(session[:user_id])
+  #end
 
 end

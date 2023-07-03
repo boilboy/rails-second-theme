@@ -2,10 +2,12 @@ class UsersController < ApplicationController
   
   def index
    @users = User.find(params[:id])
+   #@rooms = Room.all # roomsテーブルの全データを取得する rooms controllerかもしれない 
   end
 
   def show
     @user = User.find(params[:id])
+    #@room = Room.new # rooms controllerかもしれない 
   end
 
   def edit

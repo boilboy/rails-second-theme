@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
    protected
 
    def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:image,:introduction])
-  end
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:email,:password]) # ログイン時
+   
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name]) # 新規登録時
+   end
   
 end

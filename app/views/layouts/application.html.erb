@@ -14,7 +14,7 @@
   <body>
     <header>
      <%= link_to root_path do %>
-      <%= image_tag "potepan-logo.png", alt: 'ポテパンロゴ', size: '313x44', class: "header-logo" %>
+      <%= image_tag "potepan-logo.png", alt: 'ポテパンロゴ', size: '260x38', class: "header-logo" %>
      <% end %>
       <% if flash.now[:notice] %>
        <p class="notice"><%= flash.now[:notice] %></p>
@@ -22,13 +22,13 @@
       <div class ="header-link-top">
       <button class = "header-link" >
        <% if user_signed_in? %>
-        <%= image_tag current_user.image.url, alt: 'ポテパンロゴ', :size => '50x50' %>
+        <%= image_tag current_user.avatar.url, alt: 'ポテパンロゴ', :size => '50x50' %>
         <%= current_user.name %>
          <div class = "dp-menu">
          <ul class = "dp-list">
-          <li class="dp-item"><%= link_to "施設の新規登録" %></li>
+          <li class="dp-item"><%= link_to "施設の新規登録", new_room_path %></li>
           <li class="dp-item"><%= link_to "予約済み一覧" %></li>
-          <li class="dp-item"><%= link_to "登録済み一覧" %></li>
+          <li class="dp-item"><%= link_to "登録済み一覧", rooms_path %></li>
           <li class="dp-item"><%= link_to "アカウント設定", current_user %></li>
           <li class="dp-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dp-item-link" %></li>
          </ul>

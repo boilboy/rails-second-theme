@@ -7,15 +7,15 @@
       <%= form_with model: @user, url: profile_path, local: true do |f| %>
         <%= render "users/shared/error_messages", resource: @user %>
         
-        <% if @user.image? %>
-         <%= image_tag @user.image.url %>
+        <% if @user.avatar? %>
+         <%= image_tag @user.avatar.url, size: '100x100' %>
         <% else %>
-         <%= image_tag "/assets/button.png", :size => '50x50' %>
+         <%= image_tag "/assets/button.png", size: '50x50' %>
         <% end %>
     
         <div class="form-group">
           <%= f.label :アイコン画像 %>
-          <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', onchange: 'previewImage(preview)' %>
+          <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png', onchange: 'previewImage(preview)' %>
           <%= f.hidden_field :avatar_cache %>
         </div>
 
