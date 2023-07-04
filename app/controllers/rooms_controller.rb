@@ -11,27 +11,38 @@ class RoomsController < ApplicationController
   def create
    @room = Room.new(room_params)   
    if @room.save
-    flash[:notice] = "施設の新規登録を完了しました"
-    redirect_to :rooms
+    flash[:notice] = "施設の新規登録を完了しました。"
+    redirect_to controller: :rooms, action: :index
    else
-    @room = Room.find(params[:id])
     render new_room_path
    end
 
   end
 
-  def show
-   
+  def edit
+    @room = Room.find(params[:id])
   end
 
-  def edit
+  def show
    @room = Room.find(params[:id])
   end
 
+  def update 
+   @room = Room.find(params[:id])
+   if @room.update(room_params)
+    flash[:notice] = "施設情報が更新されました。"
+    redirect_to controller: :rooms, action: :index
+   else
+    render template: 'rooms/edit'
+   end
+
+  end
+
   def destroy
-    @room = Room.find(params[:id])
-    @room.destroy
-    redirect_to :rooms_path
+   @room = Room.find(params[:id])
+   @room.destroy
+    flash[:notice] = "施設情報が削除されました。"
+    redirect_to  rooms_path
   end
 
   private

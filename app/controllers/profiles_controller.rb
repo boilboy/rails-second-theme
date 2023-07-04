@@ -11,10 +11,10 @@ class ProfilesController < ApplicationController
 
     def update
       if @user.update(user_params)
-        flash[:notice] = "プロフィール情報を更新しました"
+        flash[:notice] = "プロフィール情報を更新しました。"
         redirect_to profile_path
       else
-        render "edit"
+        render template: 'profiles/edit'
       end
     end
 

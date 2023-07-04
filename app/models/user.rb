@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_many :rooms
+  has_many :rooms, dependent: :destroy
+  has_many :reservations, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable
@@ -15,9 +16,5 @@ class User < ApplicationRecord
 
   # プロフィールページ(※アイコン画像と名前と自己紹介表示のページ)のバリデーション
   validates :introduction, length: { maximum: 500 }
-    
-  #def index
-   #@user = User.find(session[:user_id])
-  #end
 
 end

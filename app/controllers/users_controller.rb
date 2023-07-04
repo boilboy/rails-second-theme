@@ -2,12 +2,10 @@ class UsersController < ApplicationController
   
   def index
    @users = User.find(params[:id])
-   #@rooms = Room.all # roomsテーブルの全データを取得する rooms controllerかもしれない 
   end
 
   def show
     @user = User.find(params[:id])
-    #@room = Room.new # rooms controllerかもしれない 
   end
 
   def edit
@@ -16,11 +14,11 @@ class UsersController < ApplicationController
   
   def update
     if @user.update(user_params)
-        flash[:notice] = "アカウント情報を変更しました"
+        flash[:notice] = "アカウント情報を変更しました。"
         redirect_to root_path
     else
-        flash.now[:danger] = "アカウント情報を更新できませんでした"
-        render :edit
+        flash.now[:danger] = "アカウント情報を更新できませんでした。"
+        render user_path
     end
 end
 

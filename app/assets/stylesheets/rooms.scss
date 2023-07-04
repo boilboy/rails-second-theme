@@ -2,15 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+//　roomモデル全体
+a:link {
+ text-decoration: none;
+}
+
+// 施設の新規登録画面
 .room-registrations-summary {
- /*position: absolute;
-  top: 20%;
-  left: 40%;*/
  margin-left: 20px;
  padding: 40px;
 }
 
-a:link,:visited {
- color: #fff;
- text-decoration: none;
+// 登録済み一覧画面
+td a:link,a:visited{
+ color: #0071c1;
+}
+
+// 施設詳細画面
+.room-detail-introduction-summary {
+ display: flex;
 }
