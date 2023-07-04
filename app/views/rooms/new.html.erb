@@ -1,5 +1,6 @@
 <div class ="room-registrations-summary">
  <h3>新規登録</h3>
+ <%= render "users/shared/error_messages", resource: @room  %>
  <%= form_with model: @room do |f| %>
 
  <table>
@@ -35,7 +36,7 @@
  <% end %>
 
   <button>
-   <%= link_to "キャンセル", :back %>
+   <%= link_to "キャンセル", 'javascript:history.back()' %>
   </button>
 
 </div>

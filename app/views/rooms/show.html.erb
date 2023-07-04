@@ -1,2 +1,15 @@
-<h1>Rooms#show</h1>
-<p>Find me in app/views/rooms/show.html.erb</p>
+<section class = "room-detail">
+ <% if @room.image? %>
+  <%= image_tag @room.image.url, size: '380x270' %>
+ <% else %> <%#  画像が設定されてない場合 %>
+  <%= image_tag ('/uploads/room/image/room_default.png'), size: '380x270' %>
+ <% end %>
+</section>
+
+<section class = "room-detail-introduction-summary">
+ <%= @room.name %>
+ <%= @room.introduction %>
+ <%= @room.price %>
+ <%= link_to "編集", edit_room_path %>
+ <%= link_to "戻る", 'javascript:history.back()' %>
+</section>
