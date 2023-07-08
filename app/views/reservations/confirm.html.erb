@@ -1,0 +1,52 @@
+<div class ="reservation-confirm-summary">
+
+       #<div class ="confirm-list-head"> 
+
+ <h3>予約内容の確認</h3>
+ <table> 
+  <tr>
+   <th>チェックイン</th>
+   <th>チェックアウト</th>
+   <th>日数</th>
+   <th>人数</th>
+   <th>お支払い金額</th>
+  </tr>
+
+              #</div>
+    
+          #<div class ="confirm-list-body">
+
+  <%= form_with model: [@room,@reservation], method: :post, url: reservations_path, local: true do |f| %>
+  <tr>
+
+   <%= f.hidden_field :user_id, value:current_user.id %>
+
+   <%= f.hidden_field :room_id, value:@room.id %>
+
+   <td><%= @reservation.start_at.to_s(:date_jp) %></td>
+   <%= f.hidden_field :start_at  %>
+
+   <td><%= @reservation.end_at.to_s(:date_jp) %></td>
+   <%= f.hidden_field :end_at  %>
+
+   <td><%= @stay_days.to_i %></td>
+   <%= f.hidden_field :stay_days, value:@stay_days  %>
+
+   <td><%= @reservation.number_of_people %></td>
+   <%= f.hidden_field :number_of_people %>
+
+   <td><%= @total_amount_price.to_i %></td>
+   <%= f.hidden_field :total_amount_price, value:@total_amount_price %>
+  </tr>
+ </table>
+
+   <p>上記内容で正しければ「確定」ボタンを押してください。</p>
+
+   <%= f.submit "予約を確定する" %>
+
+   <%= link_to "キャンセル", :back %>
+
+  <% end %> 
+ #</div>
+
+</div>

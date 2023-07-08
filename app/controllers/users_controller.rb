@@ -4,6 +4,16 @@ class UsersController < ApplicationController
    @users = User.find(params[:id])
   end
 
+  def create
+   @user = User.new(user_params)
+   if @user.save
+      redirect_to users_path
+    else
+     flash[:notice] = "失敗しました。"
+     render new_user_path
+    end
+  end
+
   def show
     @user = User.find(params[:id])
   end
@@ -17,7 +27,7 @@ class UsersController < ApplicationController
         flash[:notice] = "アカウント情報を変更しました。"
         redirect_to root_path
     else
-        flash.now[:danger] = "アカウント情報を更新できませんでした。"
+        flash.now[:notice] = "アカウント情報を更新できませんでした。"
         render user_path
     end
 end

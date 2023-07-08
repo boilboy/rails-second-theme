@@ -10,24 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_04_140422) do
+ActiveRecord::Schema.define(version: 2023_07_06_065719) do
 
   create_table "reservations", force: :cascade do |t|
-    t.date "check_in_date"
-    t.date "check_out_date"
+    t.date "start_at"
+    t.date "end_at"
     t.integer "number_of_people"
     t.integer "stay_days"
     t.integer "user_id", null: false
     t.integer "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "total_amount_price"
     t.index ["room_id"], name: "index_reservations_on_room_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "rooms", force: :cascade do |t|
     t.string "name"
-    t.text "introduction"
+    t.text "room_introduction"
     t.integer "price"
     t.string "address"
     t.string "image"
@@ -47,15 +48,12 @@ ActiveRecord::Schema.define(version: 2023_07_04_140422) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "avatar"
-    t.text "introduction"
+    t.text "self_introduction"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  # 予約モデルは(　多　対　一)　ルームとユーザーモデルに対して外部キーが必要
   add_foreign_key "reservations", "rooms"
   add_foreign_key "reservations", "users"
-
-  # 部屋モデルは(　多　対　一)　ユーザーモデルに対して外部キーが必要
   add_foreign_key "rooms", "users"
 end

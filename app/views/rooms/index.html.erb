@@ -1,3 +1,5 @@
+<main class ="registration-room-summary">
+
 <h3>施設登録済み一覧</h3>
 <table>
  <thead>
@@ -22,9 +24,9 @@
      <% end %>
     </td> 
     <td><%= link_to room.name, room_path(room.id) %></td>
-    <td><%= room.introduction %></td>
+    <td><%= room.room_introduction %></td>
     <td><%= room.price %></td>
-    <td><%= room.created_at.to_s(:datetime_jp) %></td>
+    <td><%= room.created_at.to_s(:dates_jp) %></td>
     <td><%= link_to "編集",edit_room_path(room.id) %></td>
     <td>
      <%= button_to "施設を削除する",room_path(room.id), method: :delete, data: { confirm: "本当に削除しますか？" } %>
@@ -33,3 +35,5 @@
   <% end %>
  </tbody>
 </table>
+
+</main>

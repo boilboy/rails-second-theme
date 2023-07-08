@@ -15,6 +15,6 @@ class User < ApplicationRecord
   validates :password, presence: true, on: :create # (on: :createをつけることによりパスワードを作る時だけバリーデーションが起動)
 
   # プロフィールページ(※アイコン画像と名前と自己紹介表示のページ)のバリデーション
-  validates :introduction, length: { maximum: 500 }
+  validates :self_introduction, length: { maximum: 500 }
 
 end

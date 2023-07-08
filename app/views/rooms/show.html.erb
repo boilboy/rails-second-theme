@@ -1,15 +1,37 @@
 <section class = "room-detail">
  <% if @room.image? %>
   <%= image_tag @room.image.url, size: '380x270' %>
- <% else %> <%#  画像が設定されてない場合 %>
+ <% else %>
   <%= image_tag ('/uploads/room/image/room_default.png'), size: '380x270' %>
  <% end %>
 </section>
 
 <section class = "room-detail-introduction-summary">
+
  <%= @room.name %>
- <%= @room.introduction %>
+ <%= @room.room_introduction %>
  <%= @room.price %>
  <%= link_to "編集", edit_room_path %>
  <%= link_to "戻る", 'javascript:history.back()' %>
+
+ <%= form_with model: @reservations, url: reservations_confirm_path, method: :post do |f| %>
+  <%= render "users/shared/error_messages", resource: @room %> 
+
+  <%= f.hidden_field :user_id, value:current_user.id %>
+
+  <%= f.hidden_field :room_id, value:@room.id %>
+
+  <%= f.label :start_at, "チェックイン" %>
+  <%= f.date_select :start_at %>
+
+  <%= f.label :end_at, "チェックアウト" %>
+  <%= f.date_select :end_at, selected: Date.tomorrow %>
+
+  <%= f.label :number_of_people, "人数" %>
+  <%= f.number_field :number_of_people, min: 1 %>
+
+  <%= f.submit '予約する' %>
+
+ <% end %>
+
 </section>

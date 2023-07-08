@@ -6,7 +6,6 @@ class CreateRooms < ActiveRecord::Migration[6.1]
       t.integer :price
       t.string :address
       t.string :image
-      t.integer :user_id
 
       t.timestamps
     end
