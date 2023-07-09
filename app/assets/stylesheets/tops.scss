@@ -4,7 +4,7 @@
 
 .FirstView {
  background-image: url("cover-lg.jpg");
- background-position: top;
+ background-position: 60%;
  height: 900px; 
  width: 100%;
  background-size: cover; 
@@ -19,17 +19,51 @@
  color: #fff;
  text-align: center;
  position: absolute;
- top: 30%;
+ top: 20%;
  left: 22%;
 }
 
 h2 {
  font-size: 40px;
- margin-left: 20px;
+ margin-left: 35px;
  margin-bottom: 140px;
  text-decoration: underline;
  text-underline-offset: 40px;
  text-decoration-color: orange;
+}
+
+.RecomendArea {
+ display: flex;
+ justify-content: space-evenly;
+ margin-bottom: 200px;
+}
+
+.Tokyo-image, .Osaka-image, .Kyoto-image, .Sapppro-image {
+ border-radius: 20px;
+ background-size: cover;
+ background-position: 48%;
+ padding: 220px 130px;
+} 
+
+.Tokyo-image {
+ background-image: url("tokyo.jpg");
+}
+
+.Osaka-image {
+ background-image: url("osaka.jpg");
+}
+
+.Kyoto-image {
+ background-image: url("kyoto.jpg");
+}
+
+.Sapppro-image {
+ background-image: url("sapporo.jpg");
+}
+
+.image-in-letter {
+ font-size: 30px;
+ color: #fff;
 }
 
 .notice {

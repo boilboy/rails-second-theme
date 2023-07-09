@@ -5,10 +5,44 @@
    まだ体験したことのない<br>
    旅をしよう
   </p>
+
+  <%= form_with model: @search do |form| %>
+   <%= form.search_field :room_name %>
+   <%= form.submit "" %>
+  <% end %>
  
  </section>
 
  <section>
   <h2>おすすめのエリア</h2>
+  
+  <div class = "RecomendArea">
+
+   <%= link_to current_user, alt: '東京', class: 'Tokyo-image' do %>
+    <span class = 'image-in-letter' %>
+    東京
+    </span>
+   <% end %> 
+
+   <%= link_to current_user, alt: '大阪', class: 'Osaka-image' do %>
+    <span class = 'image-in-letter' >
+    大阪
+    </sapn>
+   <% end %>
+
+   <%= link_to current_user, alt: '京都', class: 'Kyoto-image' do %>
+    <span class = 'image-in-letter' >
+    京都
+    </sapn>
+   <% end %>
+
+   <%= link_to current_user, alt: '札幌', class: 'Sapppro-image' do %>
+    <span class = 'image-in-letter' >
+    札幌
+    </sapn>
+   <% end %>
+
+  </div>
+
  </section>
 </main>
