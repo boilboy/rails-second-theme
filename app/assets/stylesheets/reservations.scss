@@ -2,6 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.reservation-summary {
+ margin: 10px;
+}
+
+table {
+ text-align: center;
+}
+
+.table tr {
+ display: flex;
+}
+   
+table th {
+ padding: 5px 20px;
+}
+
 .reservation-confirm-summary {
  display: flex;
  align-items: baseline;

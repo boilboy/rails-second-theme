@@ -1,37 +1,49 @@
-<section class = "room-detail">
- <% if @room.image? %>
-  <%= image_tag @room.image.url, size: '380x270' %>
- <% else %>
-  <%= image_tag ('/uploads/room/image/room_default.png'), size: '380x270' %>
- <% end %>
-</section>
+<main class ="room-detail-summary">
 
-<section class = "room-detail-introduction-summary">
+  <section class = "room-detail">
+   <% if @room.image? %>
+    <%= image_tag @room.image.url, size: '380x270' %>
+   <% else %>
+    <%= image_tag ('/uploads/room/image/room_default.png'), size: '380x270' %>
+   <% end %>
+  </section>
+  
+  <section class = "room-detail-introduction-summary">
 
- <%= @room.name %>
- <%= @room.room_introduction %>
- <%= @room.price %>
- <%= link_to "編集", edit_room_path %>
- <%= link_to "戻る", 'javascript:history.back()' %>
+   <div class ="room-link">
+    <%= link_to "戻る", 'javascript:history.back()' %>
+    <%= link_to "編集", edit_room_path %>
+   </div>
 
- <%= form_with model: @reservations, url: reservations_confirm_path, method: :post do |f| %>
-  <%= render "users/shared/error_messages", resource: @room %> 
+   <div class ="room-title">
+    <p class = "room-name" ><%= @room.name %><p>
+    <p class = "room-amount" >
+     ¥<%= @room.price %>円~
+    </p>
+   </div>
 
-  <%= f.hidden_field :user_id, value:current_user.id %>
+   <p class = "room-introduction"><%= @room.room_introduction %></p>
+  
+   <%= form_with model: @reservations, url: reservations_confirm_path, method: :post do |f| %>
+    <%= render "users/shared/error_messages", resource: @room %> 
+  
+    <%= f.hidden_field :user_id, value:current_user.id %>
+  
+    <%= f.hidden_field :room_id, value:@room.id %>
+  
+    <%= f.label :start_at, "チェックイン" %>
+    <%= f.date_select :start_at %>
+  
+    <%= f.label :end_at, "チェックアウト" %>
+    <%= f.date_select :end_at, selected: Date.tomorrow %>
+  
+    <%= f.label :number_of_people, "人数" %>
+    <%= f.number_field :number_of_people, min: 1 %>
+  
+    <%= f.submit '予約する' %>
+  
+   <% end %>
+  
+  </section>
 
-  <%= f.hidden_field :room_id, value:@room.id %>
-
-  <%= f.label :start_at, "チェックイン" %>
-  <%= f.date_select :start_at %>
-
-  <%= f.label :end_at, "チェックアウト" %>
-  <%= f.date_select :end_at, selected: Date.tomorrow %>
-
-  <%= f.label :number_of_people, "人数" %>
-  <%= f.number_field :number_of_people, min: 1 %>
-
-  <%= f.submit '予約する' %>
-
- <% end %>
-
-</section>
+</main>

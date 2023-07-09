@@ -28,14 +28,19 @@ class ReservationsController < ApplicationController
    @stay_days = (@reservation.end_at - @reservation.start_at)
 
    if @stay_days < 1 && @reservation.number_of_people == nil 
+
     flash[:notice] = "人数を入力してください。チェックアウト日はチェックイン日より前の日付では登録できません。"
     redirect_to @room
+
    elsif @stay_days < 1 
+
     flash[:notice] = "チェックアウト日はチェックイン日より前の日付では登録できません。"
     redirect_to @room
+
    elsif @reservation.number_of_people == nil 
     flash[:notice] = "人数を入力してください。"
     redirect_to @room
+    
    else
     @total_amount_price = @stay_days * @room.price * @reservation.number_of_people
    end

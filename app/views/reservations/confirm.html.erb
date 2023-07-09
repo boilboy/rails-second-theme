@@ -1,7 +1,5 @@
 <div class ="reservation-confirm-summary">
 
-       #<div class ="confirm-list-head"> 
-
  <h3>予約内容の確認</h3>
  <table> 
   <tr>
@@ -11,10 +9,6 @@
    <th>人数</th>
    <th>お支払い金額</th>
   </tr>
-
-              #</div>
-    
-          #<div class ="confirm-list-body">
 
   <%= form_with model: [@room,@reservation], method: :post, url: reservations_path, local: true do |f| %>
   <tr>
@@ -32,10 +26,14 @@
    <td><%= @stay_days.to_i %></td>
    <%= f.hidden_field :stay_days, value:@stay_days  %>
 
-   <td><%= @reservation.number_of_people %></td>
+   <td>
+    <%= @reservation.number_of_people %>人
+   </td>
    <%= f.hidden_field :number_of_people %>
 
-   <td><%= @total_amount_price.to_i %></td>
+   <td>
+    <%= @total_amount_price.to_i %>円
+   </td>
    <%= f.hidden_field :total_amount_price, value:@total_amount_price %>
   </tr>
  </table>
@@ -47,6 +45,5 @@
    <%= link_to "キャンセル", :back %>
 
   <% end %> 
- #</div>
 
 </div>

@@ -7,7 +7,7 @@ h3 {
 }
 
 button {
- background-color: #fff;
+ background-color: #DDDDDD;
 }
 
 header {
@@ -86,7 +86,7 @@ li {
 }
 
 .account-summary a {
-  text-decoration: none;
+ text-decoration: none;
 }
 
 .account-left {
@@ -106,4 +106,16 @@ li {
 
 .account-navi,.side-list {
  margin-left: 30px;
+}
+
+// footer用css
+footer {
+ background-color: blue;
+ padding: 20px 18px;
+ height: 400px;
+ margin-top: 120px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ color: #fff;
 }

@@ -29,6 +29,11 @@
 /public/assets
 .byebug_history
 
+# 以下のファイルをgit 管理から外す
+/public/uploads/
+
+/room_default.png
+
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 

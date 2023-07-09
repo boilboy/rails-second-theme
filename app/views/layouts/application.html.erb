@@ -41,6 +41,12 @@
       </button>
     </header>
     <%= yield %>
+    <footer>
+    <%= link_to root_path do %>
+     <%= image_tag "potepan-logo.png", alt: 'ポテパンロゴ', size: '260x38', class: "footer-logo" %>
+    <% end %>
+    <p>Copyright © Potepan Share 2023 All rights reserved</p>
+    </footer>
      <script>
        $(function () {
         $('.header-link').on('click', () => {
