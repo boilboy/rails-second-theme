@@ -19,7 +19,7 @@
        <% if room.image? %>
         <%= image_tag room.image.url, size: '250x170' %>
        <% else %> <%#  画像が設定されてない場合 %>
-        <%= image_tag ('/uploads/room/image/room_default.png'), size: '250x170' %>
+        <%= image_tag ('/app/assets/images/room_default.png'), size: '250x170' %>
        <% end %>
       </td> 
       <td><%= link_to room.name, room_path(room.id) %></td>
