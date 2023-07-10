@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
-
+  before_action :authenticate_user!, except: [:show, :search]
+  
   def index
    @rooms = current_user.rooms # ログイン中ユーザーが登録した施設だけが見れるようになる
   end
@@ -47,10 +47,20 @@ class RoomsController < ApplicationController
     redirect_to  rooms_path
   end
 
+  def search
+   if params[:address].present?
+    @rooms = Room.where(["address LIKE(?)", "%#{params[:address]}%"])
+   elsif params[:keyword].present? 
+    @rooms = Room.where(["room_name LIKE(?) OR room_introduction LIKE(?)", "%#{params[:keyword]}%", "%#{params[:keyword]}%"])
+   else
+    @rooms = Room.all
+   end
+  end
+
   private
 
   def room_params
-   params.require(:room).permit(:name, :room_introduction, :price, :address, :image ).merge(user_id: current_user.id)  
+   params.require(:room).permit(:room_name, :room_introduction, :price, :address, :image, :room_id ).merge(user_id: current_user.id)  
   end
 
 end

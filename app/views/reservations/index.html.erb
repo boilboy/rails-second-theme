@@ -24,7 +24,7 @@
         <%= image_tag ('/assets/room_default.png'), size: '250x170' %>
        <% end %>
       </td> 
-      <td><%= reservation.room.name %></td>
+      <td><%= reservation.room.room_name %></td>
       <td><%= reservation.room.room_introduction %></td>
       <td>
        ¥<%= reservation.total_amount_price.to_i %>

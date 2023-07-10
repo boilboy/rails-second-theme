@@ -5,8 +5,8 @@ class Room < ApplicationRecord
  mount_uploader :image, ImageUploader
 
   # 施設の新規登録のページのバリデーション
-  validates :name, presence: true, uniqueness: { scope: :user }
-  validates :room_introduction, length: { maximum: 1000 }
+  validates :room_name, presence: true, uniqueness: { scope: :user }
+  validates :room_introduction, length: { maximum: 500 }
   validates :price, presence: true
   validates :address, presence: true
 

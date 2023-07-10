@@ -15,7 +15,7 @@
     
         <div class="form-group">
           <%= f.label :アイコン画像 %>
-          <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png', onchange: 'previewImage(preview)' %>
+          <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png' %>
           <%= f.hidden_field :avatar_cache %>
         </div>
 

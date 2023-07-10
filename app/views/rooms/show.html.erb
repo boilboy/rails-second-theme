@@ -16,7 +16,7 @@
    </div>
 
    <div class ="room-title">
-    <p class = "room-name" ><%= @room.name %><p>
+    <p class = "room-name" ><%= @room.room_name %><p>
     <p class = "room-amount" >
      ¥<%= @room.price %>円~
     </p>
@@ -32,10 +32,10 @@
     <%= f.hidden_field :room_id, value:@room.id %>
   
     <%= f.label :start_at, "チェックイン" %>
-    <%= f.date_select :start_at %>
+    <%= f.date_select :start_at, use_month_numbers: true, date_separator:'/' %>
   
     <%= f.label :end_at, "チェックアウト" %>
-    <%= f.date_select :end_at, selected: Date.tomorrow %>
+    <%= f.date_select :end_at, use_month_numbers: true, date_separator:'/', selected: Date.tomorrow %>
   
     <%= f.label :number_of_people, "人数" %>
     <%= f.number_field :number_of_people, min: 1 %>

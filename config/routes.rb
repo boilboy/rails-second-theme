@@ -7,6 +7,12 @@ Rails.application.routes.draw do
 
   resource :profile, only: %i[show edit update]
 
+  resources :rooms do
+    collection do
+      get 'search' => 'rooms#search'
+    end
+  end
+
   resources :rooms
 
   resources :reservations

@@ -10,7 +10,7 @@
    <th>お支払い金額</th>
   </tr>
 
-  <%= form_with model: [@room,@reservation], method: :post, url: reservations_path, local: true do |f| %>
+  <%= form_with model: @reservation, method: :post, url: reservations_path, local: true do |f| %>
   <tr>
 
    <%= f.hidden_field :user_id, value:current_user.id %>

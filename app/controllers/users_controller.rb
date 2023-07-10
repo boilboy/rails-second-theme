@@ -9,7 +9,6 @@ class UsersController < ApplicationController
    if @user.save
       redirect_to users_path
     else
-     flash[:notice] = "失敗しました。"
      render new_user_path
     end
   end
@@ -27,7 +26,6 @@ class UsersController < ApplicationController
         flash[:notice] = "アカウント情報を変更しました。"
         redirect_to root_path
     else
-        flash.now[:notice] = "アカウント情報を更新できませんでした。"
         render user_path
     end
 end

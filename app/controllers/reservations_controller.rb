@@ -10,7 +10,7 @@ class ReservationsController < ApplicationController
     flash[:notice] = "施設の予約が完了しました。"
     redirect_to reservations_path
    else 
-    render controller: :rooms, action: :show
+    render room_path 
    end
 
   end

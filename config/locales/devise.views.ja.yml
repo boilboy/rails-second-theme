@@ -8,9 +8,9 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
-        introduction: "自己紹介"
+        self_introduction: "自己紹介"
       room:
-        name: "施設名"
+        room_name: "施設名"
         price: "料金"
         address: "住所"
     models:
