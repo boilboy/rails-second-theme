@@ -1,0 +1,30 @@
+<main class ="account-summary">
+ <%= render partial:'users/shared/sideleft' %>
+
+    <div class="profile-list">
+      <h3>プロフィール</h3>
+      <table>
+        
+        <tr>
+          <th><%= User.human_attribute_name(:アイコン画像) %></th>
+          <td><%= image_tag current_user.avatar.url, size: '80x80' %></td>
+        </tr>
+
+        <tr>
+          <th><%= User.human_attribute_name(:名前) %></th>
+          <td><%= current_user.name %></td>
+        </tr>
+
+        <tr>
+          <th><%= User.human_attribute_name(:自己紹介) %></th>
+          <td><%= current_user.self_introduction %></td>
+        </tr>
+
+      </table>
+
+      <button>
+         <%= link_to'編集する', edit_profile_path %>
+      </button>
+
+    </div>
+</main>

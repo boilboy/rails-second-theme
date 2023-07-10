@@ -1,0 +1,82 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+//　roomモデル全体
+.registration-room-summary {
+ margin: 10px;
+}
+
+// roomとreservationモデル兼用
+table {
+ text-align: center;
+}
+
+.table tr {
+ display: flex;
+}
+
+table th {
+ text-align: center;
+ background-color: #fbc25b;
+ padding: 7px 20px;
+}
+
+table td {
+ background-color: #f9ecd5;
+ padding: 8px 10px;
+}
+
+a:link {
+ text-decoration: none;
+}
+
+// 施設の新規登録画面
+.room-registrations-summary {
+ margin-left: 20px;
+ padding: 40px;
+}
+
+// 登録済み一覧画面
+td a:link,a:visited{
+ color: #c3871e;
+}
+
+// 施設詳細画面
+.room-detail-summary {
+ display: flex;
+ margin: 20px 10px;
+}
+
+.room-detail-introduction-summary {
+ display: flex;
+ flex-direction: column;
+ margin: auto 15px;
+}
+
+.room-link {
+ display: flex;
+ justify-content: space-between;
+ margin: 0px 10px;
+}
+
+.room-title {
+ display: flex;
+ justify-content: space-between;
+ margin: 20px 10px;
+}
+
+.room-introduction {
+ margin-top: 5px;
+ margin-bottom: 15px;
+}
+
+.room-name{
+ font-size: 30px;
+ margin: 0;
+}
+
+.room-amount {
+ font-size: 30px;
+ margin: 0;
+}

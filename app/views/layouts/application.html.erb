@@ -8,9 +8,51 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+    <header>
+     <%= link_to root_path do %>
+      <%= image_tag "potepan-logo.png", alt: 'ポテパンロゴ', size: '260x38', class: "header-logo" %>
+     <% end %>
+      <% if flash.now[:notice] %>
+       <p class="notice"><%= flash.now[:notice] %></p>
+      <% end %>
+      <div class ="header-link-top">
+      <button class = "header-link" >
+       <% if user_signed_in? %>
+        <%= image_tag current_user.avatar.url, alt: 'ポテパンロゴ', :size => '50x50' %>
+        <%= current_user.name %>
+         <div class = "dp-menu">
+         <ul class = "dp-list">
+          <li class="dp-item"><%= link_to "施設の新規登録", new_room_path %></li>
+          <li class="dp-item"><%= link_to "予約済み一覧", reservations_path %></li>
+          <li class="dp-item"><%= link_to "登録済み一覧", rooms_path %></li>
+          <li class="dp-item"><%= link_to "アカウント設定", current_user %></li>
+          <li class="dp-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dp-item-link" %></li>
+         </ul>
+        </div>
+       </div>
+       <% else %>
+        <%= link_to "ログイン", new_user_session_path %>
+        <%= link_to "新規登録", new_user_registration_path %>
+       <% end %>
+      </button>
+    </header>
     <%= yield %>
+    <footer>
+    <%= link_to root_path do %>
+     <%= image_tag "potepan-logo.png", alt: 'ポテパンロゴ', size: '260x38', class: "footer-logo" %>
+    <% end %>
+    <p>Copyright © Potepan Share 2023 All rights reserved</p>
+    </footer>
+     <script>
+       $(function () {
+        $('.header-link').on('click', () => {
+           $('.dp-menu').toggle();
+        });
+       });
+     </script>
   </body>
 </html>

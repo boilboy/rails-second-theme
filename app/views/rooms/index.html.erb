@@ -1,0 +1,40 @@
+<main class ="registration-room-summary">
+
+  <h3>施設登録済み一覧</h3>
+  <table>
+   <thead>
+    <tr>
+     <th>施設画像</th>
+     <th>施設名</th>
+     <th>紹介文</th> 
+     <th>料金</th>
+     <th>作成日</th>
+    </tr>
+   </thead>
+  
+   <tbody>
+    <% @rooms.each do |room| %>
+     <tr>
+      <td>
+       <% if room.image? %>
+        <%= image_tag room.image.url, size: '250x170' %>
+       <% else %> <%#  画像が設定されてない場合 %>
+        <%= image_tag ('/assets/room_default.png'), size: '250x170' %>
+       <% end %>
+      </td> 
+      <td><%= link_to room.room_name, room_path(room.id) %></td>
+      <td><%= room.room_introduction %></td>
+      <td>
+       ¥<%= room.price %>~
+      </td>
+      <td><%= room.created_at.to_s(:dates_jp) %></td>
+      <td><%= link_to "編集",edit_room_path(room.id) %></td>
+      <td>
+       <%= button_to "施設を削除する",room_path(room.id), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+      </td>
+     </tr>
+    <% end %>
+   </tbody>
+  </table>
+
+</main>

@@ -1,0 +1,49 @@
+<main class ="room-detail-summary">
+
+  <section class = "room-detail">
+   <% if @room.image? %>
+    <%= image_tag @room.image.url, size: '380x270' %>
+   <% else %>
+    <%= image_tag ('/assets/room_default.png'), size: '380x270' %>
+   <% end %>
+  </section>
+  
+  <section class = "room-detail-introduction-summary">
+
+   <div class ="room-link">
+    <%= link_to "戻る", 'javascript:history.back()' %>
+    <%= link_to "編集", edit_room_path %>
+   </div>
+
+   <div class ="room-title">
+    <p class = "room-name" ><%= @room.room_name %><p>
+    <p class = "room-amount" >
+     ¥<%= @room.price %>円~
+    </p>
+   </div>
+
+   <p class = "room-introduction"><%= @room.room_introduction %></p>
+  
+   <%= form_with model: @reservations, url: reservations_confirm_path, method: :post do |f| %>
+    <%= render "users/shared/error_messages", resource: @room %> 
+  
+    <%= f.hidden_field :user_id, value:current_user.id %>
+  
+    <%= f.hidden_field :room_id, value:@room.id %>
+  
+    <%= f.label :start_at, "チェックイン" %>
+    <%= f.date_select :start_at, use_month_numbers: true, date_separator:'/' %>
+  
+    <%= f.label :end_at, "チェックアウト" %>
+    <%= f.date_select :end_at, use_month_numbers: true, date_separator:'/', selected: Date.tomorrow %>
+  
+    <%= f.label :number_of_people, "人数" %>
+    <%= f.number_field :number_of_people, min: 1 %>
+  
+    <%= f.submit '予約する' %>
+  
+   <% end %>
+  
+  </section>
+
+</main>

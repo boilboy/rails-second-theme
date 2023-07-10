@@ -1,0 +1,138 @@
+body {
+ margin: 0;
+}
+ 
+h3 {
+ font-size: 30px;
+}
+
+button {
+ background-color: #DDDDDD;
+}
+
+header {
+ padding: 14px 18px;
+ display: flex;
+ justify-content: space-between;
+ align-items: flex-end;
+ background-color: blue;
+ height: 62px
+}
+  
+header a {
+ text-decoration: none;
+ color: #fff;
+}
+  
+.header-link-top {
+ position: relative;
+}
+
+.header-link {
+ display: flex; 
+ align-items: center;
+ font-size: 16px;
+ gap: 7px;
+ background: transparent;
+ color: #fff; 
+ border: none;
+ cursor: pointer;
+}
+
+.header-link a:first-child {
+ margin-right: 10px;
+}
+  
+.header-link a:last-child {
+ padding: 10px;
+}
+
+.dp-menu {
+ display: none; // 再読み込み時などはリンクメニューを非表示にするため
+ position: absolute;
+  top: 69px;
+  left: -32px;
+ text-align: start;
+ border: 1px yellowgreen solid;
+ background-color: #fff;
+ cursor: pointer;
+}
+  
+.dp-list {
+ padding-left: 2px;
+}
+
+li {
+ list-style: none;
+ white-space: nowrap; // 文字を勝手に改行させないため
+ line-height: 0.9;
+}
+
+.dp-item-link :link,:visited {
+ color: #000;
+}// 各リンク
+
+.dp-item {
+ padding-top: 6px;
+ padding-bottom: 6px;
+}
+
+//アカウント設定画面用のscss☟
+
+.account-summary {
+ display: flex;
+ margin-top: 10px;
+ margin-bottom: 50px;
+}
+
+.account-summary a {
+ text-decoration: none;
+}
+
+.account-left {
+ margin-left: 20px;
+}
+
+.choice-list {
+ display: flex;
+ flex-direction: column;
+ gap: 2px; 
+}
+
+.choice-account,.choice-profile {
+  padding: 15px 135px 15px 10px;
+  margin: 0;
+}
+
+.account-navi,.side-list {
+ margin-left: 30px;
+}
+
+// 検索結果用css
+
+.number-count {
+ font-size: 40px;
+}
+
+.search-result {
+ display: flex;
+ flex-direction: column;
+ margin: 10px 20px;
+ border: 1px solid #000;
+}
+
+.search-list {
+ display: flex;
+}
+
+// footer用css
+footer {
+ background-color: blue;
+ padding: 20px 18px;
+ height: 400px;
+ margin-top: 120px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ color: #fff;
+}

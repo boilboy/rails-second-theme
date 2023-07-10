@@ -1,0 +1,17 @@
+// Place all the styles related to the reservations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.reservation-summary {
+ margin: 10px;
+}
+
+.reservation-confirm-summary {
+ display: flex;
+ align-items: baseline;
+ flex-direction: column;
+}
+
+.confirm-list-body {
+ display: flex;
+}

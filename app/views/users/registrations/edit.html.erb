@@ -1,0 +1,41 @@
+<main class ="account-summary">
+ <%= render'users/shared/sideleft' %>
+
+ <h3>アカウント</h3>
+ <%= form_with(model: resource, scope: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password %><i>(※変更する場合のみ)</i><br/>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><i>(※変更する場合のみ)</i><br/>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %><br/>
+    <%= f.password_field :current_password %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存" %>
+  </div>
+
+  <button> 
+   <%= link_to "キャンセル", current_user %>
+  </button>
+  
+ <% end %>
+</main>
